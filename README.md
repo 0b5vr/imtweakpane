@@ -6,7 +6,7 @@ Rough, experimental, made for myself
 
 ```html
 <script src="https://unpkg.com/tweakpane@3.0.5/dist/tweakpane.js"></script>
-<script src="https://unpkg.com/@0b5vr/imtweakpane@0.1.0/dist/imtweakpane.js"></script>
+<script src="https://unpkg.com/@0b5vr/imtweakpane@0.1.1/dist/imtweakpane.js"></script>
 
 <script>
   const gui = new IMTWEAKPANE.ImPane();
