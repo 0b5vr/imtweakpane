@@ -4,6 +4,9 @@
   "description": "Tweakpane but with immediate-y interface (actually not)",
   "main": "./dist/imtweakpane.js",
   "module": "./dist/imtweakpane.module.js",
+  "keywords": [],
+  "author": "0b5vr",
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development rollup -w -c",
     "all": "yarn && yarn lint && yarn clean && yarn build && yarn docs",
@@ -17,9 +20,14 @@
     "build-types": "tsc --declaration --declarationDir ./types --emitDeclarationOnly && downlevel-dts types ts3.4/types",
     "docs": "typedoc --entryPoints ./src/index.ts --out docs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
+  "files": [
+    "/dist/",
+    "/ts*/",
+    "/types/",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "devDependencies": {
     "@rollup/plugin-replace": "^3.0.0",
     "@rollup/plugin-typescript": "^8.2.5",
