@@ -1,6 +1,6 @@
 {
   "name": "@0b5vr/imtweakpane",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Tweakpane but with immediate-y interface (actually not)",
   "main": "./dist/imtweakpane.js",
   "module": "./dist/imtweakpane.module.js",
