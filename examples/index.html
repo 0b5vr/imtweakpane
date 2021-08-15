@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/tweakpane@3.0.5/dist/tweakpane.js"></script>
+<script src="../dist/imtweakpane.js"></script>
+<script>
+  const gui = new IMTWEAKPANE.ImPane();
+
+  const update = () => {
+    requestAnimationFrame( update );
+
+    const folder = gui.folder( 'folder' );
+    const value1 = folder.value( 'value1', 0.0 );
+    const value2 = folder.value( 'value2', 1.0, { min: 0.0, max: 1.0 } );
+    const list = folder.value( 'list', 'A', { options: { 'A': 'A', 'B': 'B' } } );
+    const monitor = folder.monitor( 'monitor', Math.random(), { bufferSize: 10 } );
+  };
+  update();
+
+  gui.button( '420' ).on( 'click', () => console.log( 'blaze it' ) );
+</script>

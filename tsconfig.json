@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "strict": true,
+    "types": [ "node" ],
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "lib": [ "es2020", "dom" ]
+  },
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "**/tests/**"
+  ]
+}
