@@ -30,6 +30,8 @@ jobs:
       with:
         node-version: '16'
         cache: 'yarn'
+    - name: Fetch Deps
+      run: yarn
     - name: Build
       run: yarn build
     - name: Upload Builds
@@ -49,6 +51,8 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: build
+    - name: Fetch Deps
+      run: yarn
     - uses: actions/setup-node@v2
       with:
         node-version: '16'
