@@ -1,5 +1,7 @@
 # imtweakpane
 
+[![Latest NPM release](https://img.shields.io/npm/v/@0b5vr/imtweakpane.svg)](https://www.npmjs.com/package/@0b5vr/imtweakpane)
+
 [Tweakpane](https://cocopon.github.io/tweakpane/) but with immediate-y interface (actually not)
 
 Rough, experimental, made for myself
@@ -20,3 +22,5 @@ Rough, experimental, made for myself
   update();
 </script>
 ```
+
+- [Docs](https://0b5vr.github.io/imtweakpane/docs/)

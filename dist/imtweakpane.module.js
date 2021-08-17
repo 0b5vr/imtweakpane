@@ -1,5 +1,5 @@
 /*!
- * @0b5vr/imtweakpane v0.1.1
+ * @0b5vr/imtweakpane v0.1.2
  * Tweakpane but with immediate-y interface (actually not)
  *
  * Copyright (c) 2021 0b5vr
