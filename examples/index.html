@@ -1,3 +1,5 @@
+<body></body>
+
 <script src="https://unpkg.com/tweakpane@3.0.5/dist/tweakpane.js"></script>
 <script src="../dist/imtweakpane.js"></script>
 <script>
@@ -6,11 +8,10 @@
   const update = () => {
     requestAnimationFrame( update );
 
-    const folder = gui.folder( 'folder' );
-    const value1 = folder.value( 'value1', 0.0 );
-    const value2 = folder.value( 'value2', 1.0, { min: 0.0, max: 1.0 } );
-    const list = folder.value( 'list', 'A', { options: { 'A': 'A', 'B': 'B' } } );
-    const monitor = folder.monitor( 'monitor', Math.random(), { bufferSize: 10 } );
+    const value1 = gui.value( 'folder/value1', 0.0 );
+    const value2 = gui.value( 'folder/value2', 1.0, { min: 0.0, max: 1.0 } );
+    const list = gui.value( 'folder/list', 'A', { options: { 'A': 'A', 'B': 'B' } } );
+    const monitor = gui.monitor( 'folder/monitor', Math.random(), { bufferSize: 10 } );
   };
   update();
 

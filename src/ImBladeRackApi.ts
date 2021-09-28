@@ -38,6 +38,13 @@ export class ImBladeRackApi<TBladeRackApi extends BladeRackApi> {
   }
 
   public folder( title: string, params?: Partial<Tweakpane.FolderParams> ): ImFolderApi {
+    const path = title.split( '/' );
+    if ( path.length > 1 ) {
+      const folder = path[ 0 ];
+      const remainingPath = path.slice( 1 ).join( '/' );
+      return this.folder( folder ).folder( remainingPath, params );
+    }
+
     if ( !ImBladeRackApi.imFolderApiCtor ) {
       throw new Error( process.env.NODE_ENV === 'development' ? 'ImBladeRackApi.imFolderApiCtor is not set' : undefined );
     }
@@ -54,6 +61,13 @@ export class ImBladeRackApi<TBladeRackApi extends BladeRackApi> {
     title: string,
     params?: Partial<Tweakpane.ButtonParams>,
   ): Tweakpane.ButtonApi {
+    const path = title.split( '/' );
+    if ( path.length > 1 ) {
+      const folder = path[ 0 ];
+      const remainingPath = path.slice( 1 ).join( '/' );
+      return this.folder( folder ).button( remainingPath, params );
+    }
+
     if ( this.__buttons[ title ] == null ) {
       const button = this.bladeRackApi.addButton( { title, ...params } );
       this.__buttons[ title ] = button;
@@ -66,6 +80,13 @@ export class ImBladeRackApi<TBladeRackApi extends BladeRackApi> {
     id: string,
     params?: Tweakpane.TabParams,
   ): ImTabApi {
+    const path = id.split( '/' );
+    if ( path.length > 1 ) {
+      const folder = path[ 0 ];
+      const remainingPath = path.slice( 1 ).join( '/' );
+      return this.folder( folder ).tab( remainingPath, params );
+    }
+
     if ( !ImBladeRackApi.imTabApiCtor ) {
       throw new Error( process.env.NODE_ENV === 'development' ? 'ImBladeRackApi.imTabApiCtor is not set' : undefined );
     }
@@ -82,6 +103,13 @@ export class ImBladeRackApi<TBladeRackApi extends BladeRackApi> {
     id: string,
     params?: Tweakpane.BaseParams,
   ): Tweakpane.SeparatorApi {
+    const path = id.split( '/' );
+    if ( path.length > 1 ) {
+      const folder = path[ 0 ];
+      const remainingPath = path.slice( 1 ).join( '/' );
+      return this.folder( folder ).separator( remainingPath, params );
+    }
+
     if ( this.__separators[ id ] == null ) {
       const separator = this.bladeRackApi.addSeparator( params );
       this.__separators[ id ] = separator;
@@ -92,34 +120,55 @@ export class ImBladeRackApi<TBladeRackApi extends BladeRackApi> {
 
   public value<T extends any>(
     key: string,
-    init: T,
+    init?: T,
     params?: Tweakpane.InputParams,
-  ): T {
+  ): T | null {
+    const path = key.split( '/' );
+    if ( path.length > 1 ) {
+      const folder = path[ 0 ];
+      const remainingPath = path.slice( 1 ).join( '/' );
+      return this.folder( folder ).value( remainingPath, init, params );
+    }
+
     this.input( key, init, params );
 
-    return this.__params[ key ] as T;
+    return ( this.__params[ key ] as T | undefined ) ?? null;
   }
 
   public input<T extends any>(
     key: string,
-    init: T,
+    init?: T,
     params?: Tweakpane.InputParams,
-  ): Tweakpane.InputBindingApi<unknown, T> {
-    if ( this.__params[ key ] == null ) {
+  ): Tweakpane.InputBindingApi<unknown, T> | null {
+    const path = key.split( '/' );
+    if ( path.length > 1 ) {
+      const folder = path[ 0 ];
+      const remainingPath = path.slice( 1 ).join( '/' );
+      return this.folder( folder ).input( remainingPath, init, params );
+    }
+
+    if ( this.__params[ key ] == null && init != null ) {
       this.__params[ key ] = init;
       const input = this.bladeRackApi.addInput( this.__params, key, params );
       this.__inputs[ key ] = input;
     }
 
-    return this.__inputs[ key ];
+    return this.__inputs[ key ] ?? null;
   }
 
   public monitor<T>(
     key: string,
-    value: T,
+    value?: T,
     params?: Tweakpane.MonitorParams,
-  ): Tweakpane.MonitorBindingApi<T> {
-    if ( this.__params[ key ] == null ) {
+  ): Tweakpane.MonitorBindingApi<T> | null {
+    const path = key.split( '/' );
+    if ( path.length > 1 ) {
+      const folder = path[ 0 ];
+      const remainingPath = path.slice( 1 ).join( '/' );
+      return this.folder( folder ).monitor( remainingPath, value, params );
+    }
+
+    if ( this.__params[ key ] == null && value != null ) {
       this.__params[ key ] = value;
       const monitor = this.bladeRackApi.addMonitor( this.__params, key, params );
       this.__monitors[ key ] = monitor;
@@ -129,14 +178,21 @@ export class ImBladeRackApi<TBladeRackApi extends BladeRackApi> {
       this.__params[ key ] = value;
     }
 
-    return this.__monitors[ key ];
+    return this.__monitors[ key ] ?? null;
   }
 
   public blade(
     id: string,
-    params: Tweakpane.BaseBladeParams,
-  ): Tweakpane.BladeApi<BladeController<View>> {
-    if ( this.__blades[ id ] == null ) {
+    params?: Tweakpane.BaseBladeParams,
+  ): Tweakpane.BladeApi<BladeController<View>> | null {
+    const path = id.split( '/' );
+    if ( path.length > 1 ) {
+      const folder = path[ 0 ];
+      const remainingPath = path.slice( 1 ).join( '/' );
+      return this.folder( folder ).blade( remainingPath, params );
+    }
+
+    if ( this.__blades[ id ] == null && params != null ) {
       const blade = this.bladeRackApi.addBlade( params );
       this.__blades[ id ] = blade;
     }
