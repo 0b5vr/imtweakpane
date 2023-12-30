@@ -14,10 +14,10 @@ Rough, experimental, made for myself
   const gui = new IMTWEAKPANE.ImPane();
 
   const update = () => {
-    requestAnimationFrame( update );
+    requestAnimationFrame(update);
 
-    const folder = gui.folder( 'folder' );
-    const value = folder.value( 'value', 1.0, { min: 0.0, max: 1.0 } );
+    const folder = gui.folder("folder");
+    const value = folder.value("value", 1.0, { min: 0.0, max: 1.0 });
   };
   update();
 </script>

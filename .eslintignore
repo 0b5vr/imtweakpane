@@ -1,6 +1,0 @@
-/dist/**/*
-/docs/**/*
-/ts3.*/**/*
-/types/**/*
-.eslintrc.js
-rollup.config.js
