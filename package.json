@@ -17,7 +17,7 @@
     "dev": "cross-env NODE_ENV=development rollup -w -c",
     "all": "yarn && yarn lint && yarn clean && yarn build && yarn docs",
     "version": "yarn all",
-    "clean": "rimraf dist/ docs/ ts*/ types/",
+    "clean": "rimraf dist/ docs/ types/",
     "lint": "prettier . --check",
     "lint-fix": "prettier . --write",
     "build": "yarn build-dev && yarn build-prod && yarn build-types",
