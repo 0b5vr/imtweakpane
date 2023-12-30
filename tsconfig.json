@@ -6,6 +6,7 @@
     "types": [ "node" ],
     "moduleResolution": "node",
     "downlevelIteration": true,
+    "resolveJsonModule": true,
     "lib": [ "es2020", "dom" ]
   },
   "include": [

@@ -1,5 +1,5 @@
 import * as Tweakpane from 'tweakpane';
-import { ImBladeRackApi } from './ImBladeRackApi';
+import { ImContainerApi } from './ImContainerApi';
 import { ImTabPageApi } from './ImTabPageApi';
 
 export class ImTabApi {
@@ -26,4 +26,4 @@ export class ImTabApi {
 }
 
 // don't worry about it
-ImBladeRackApi.imTabApiCtor = ImTabApi;
+ImContainerApi.imTabApiCtor = ImTabApi;

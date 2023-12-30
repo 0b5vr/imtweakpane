@@ -1,13 +1,13 @@
 /* eslint-env node */
 
-import packageJson from './package.json';
+import packageJson from './package.json' assert { type: 'json' };
 import replace from '@rollup/plugin-replace';
 import serve from 'rollup-plugin-serve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 
 // == constants ====================================================================================
-const copyright = '(c) 2021 0b5vr';
+const copyright = '(c) 2021-2023 0b5vr';
 const licenseName = 'MIT License';
 const licenseUri = 'https://github.com/0b5vr/imtweakpane/blob/master/LICENSE';
 const globalName = 'IMTWEAKPANE';
@@ -82,7 +82,7 @@ const buildConfig = [
 ];
 
 const watchConfig = createConfig( [
-  createOutputOptions( {} ),
+  createOutputOptions( { esm: true } ),
 ] );
 
 export default WATCH ? watchConfig : buildConfig;

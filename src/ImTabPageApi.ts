@@ -1,9 +1,9 @@
 import * as Tweakpane from 'tweakpane';
-import { ImBladeRackApi } from './ImBladeRackApi';
+import { ImContainerApi } from './ImContainerApi';
 
-export class ImTabPageApi extends ImBladeRackApi<Tweakpane.TabPageApi> {
+export class ImTabPageApi extends ImContainerApi<Tweakpane.TabPageApi> {
   public get folderApi(): Tweakpane.TabPageApi {
-    return this.bladeRackApi;
+    return this.containerApi;
   }
 
   public constructor( page: Tweakpane.TabPageApi ) {

@@ -1,9 +1,10 @@
 import * as Tweakpane from 'tweakpane';
-import { ImBladeRackApi } from './ImBladeRackApi';
+import { FolderApi } from '@tweakpane/core';
+import { ImContainerApi } from './ImContainerApi';
 
-export class ImFolderApi extends ImBladeRackApi<Tweakpane.FolderApi> {
+export class ImFolderApi extends ImContainerApi<FolderApi> {
   public get folderApi(): Tweakpane.FolderApi {
-    return this.bladeRackApi;
+    return this.containerApi;
   }
 
   public constructor( folder: Tweakpane.FolderApi ) {
@@ -12,4 +13,4 @@ export class ImFolderApi extends ImBladeRackApi<Tweakpane.FolderApi> {
 }
 
 // don't worry about it
-ImBladeRackApi.imFolderApiCtor = ImFolderApi;
+ImContainerApi.imFolderApiCtor = ImFolderApi;
