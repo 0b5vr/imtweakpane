@@ -52,7 +52,7 @@
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "@tweakpane/core": "^1.0.6",
-    "tweakpane": "^3.0.5"
+    "@tweakpane/core": "^2.0.3",
+    "tweakpane": "^4.0.3"
   }
 }
