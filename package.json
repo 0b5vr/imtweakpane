@@ -1,57 +1,57 @@
 {
   "name": "@0b5vr/imtweakpane",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Tweakpane but with immediate-y interface (actually not)",
   "main": "./dist/imtweakpane.js",
   "module": "./dist/imtweakpane.module.js",
   "types": "./types/index.d.ts",
+  "type": "module",
   "keywords": [],
   "author": "0b5vr",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0b5vr/imtweakpane.git"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development rollup -w -c",
     "all": "yarn && yarn lint && yarn clean && yarn build && yarn docs",
     "version": "yarn all",
-    "clean": "rimraf dist/ docs/ ts*/ types/",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "lint-fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "clean": "rimraf dist/ docs/ types/",
+    "lint": "prettier . --check",
+    "lint-fix": "prettier . --write",
     "build": "yarn build-dev && yarn build-prod && yarn build-types",
     "build-dev": "cross-env NODE_ENV=development rollup -c",
     "build-prod": "cross-env NODE_ENV=production rollup -c",
-    "build-types": "tsc --declaration --declarationDir ./types --emitDeclarationOnly && downlevel-dts types ts3.4/types",
+    "build-types": "tsc --declaration --declarationDir ./types --emitDeclarationOnly",
     "docs": "typedoc --entryPoints ./src/index.ts --out docs"
   },
   "files": [
     "/dist/",
-    "/ts*/",
     "/types/",
     "/LICENSE",
     "/package.json",
     "/README.md"
   ],
   "devDependencies": {
-    "@rollup/plugin-replace": "^3.0.0",
-    "@rollup/plugin-typescript": "^8.2.5",
-    "@tweakpane/core": "^1.0.6",
-    "@typescript-eslint/eslint-plugin": "^4.7.0",
-    "@typescript-eslint/parser": "^4.7.0",
+    "@rollup/plugin-replace": "^5.0.5",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@tweakpane/core": "^2.0.3",
     "cross-env": "^7.0.2",
-    "downlevel-dts": "^0.7.0",
-    "eslint": "^7.7.0",
-    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
-    "gh-pages": "^3.1.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.33.1",
+    "gh-pages": "^6.1.1",
+    "prettier": "^3.1.1",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.2",
     "rollup-plugin-serve": "^1.0.4",
     "rollup-plugin-terser": "^7.0.1",
     "ts-node": "^10.2.0",
     "tslib": "^2.0.1",
-    "tweakpane": "^3.0.5",
-    "typedoc": "^0.21.5",
-    "typescript": "^4.0.2"
+    "tweakpane": "^4.0.3",
+    "typedoc": "^0.25.4",
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "@tweakpane/core": "^1.0.6",
-    "tweakpane": "^3.0.5"
+    "@tweakpane/core": "^2.0.3",
+    "tweakpane": "^4.0.3"
   }
 }

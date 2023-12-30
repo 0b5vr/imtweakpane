@@ -3,15 +3,12 @@
     "target": "es6",
     "module": "es6",
     "strict": true,
-    "types": [ "node" ],
+    "types": ["node"],
     "moduleResolution": "node",
     "downlevelIteration": true,
-    "lib": [ "es2020", "dom" ]
+    "resolveJsonModule": true,
+    "lib": ["es2020", "dom"]
   },
-  "include": [
-    "./src"
-  ],
-  "exclude": [
-    "**/tests/**"
-  ]
+  "include": ["./src"],
+  "exclude": ["**/tests/**"]
 }

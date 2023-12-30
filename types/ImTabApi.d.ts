@@ -1,5 +1,5 @@
-import * as Tweakpane from 'tweakpane';
-import { ImTabPageApi } from './ImTabPageApi';
+import * as Tweakpane from "tweakpane";
+import { ImTabPageApi } from "./ImTabPageApi";
 export declare class ImTabApi {
     readonly tabApi: Tweakpane.TabApi;
     private __pages;
